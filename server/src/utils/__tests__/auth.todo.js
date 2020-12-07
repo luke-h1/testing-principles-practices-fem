@@ -1,5 +1,11 @@
+import {isPasswordAllowed} from '../auth'
+
 test('isPasswordAllowed only allows some passwords', () => {
-  // here's where I'll demo things for you :)
+  expect.assertions(4)
+  expect(isPasswordAllowed('')).toBe(false)
+  expect(isPasswordAllowed('ffffffffff')).toBe(false)
+  expect(isPasswordAllowed('111111111111')).toBe(false)
+  expect(isPasswordAllowed('skfl.123')).toBe(true)
 })
 
 test('userToJSON excludes secure properties', () => {
